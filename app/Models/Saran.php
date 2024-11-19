@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Survey extends Model
+class Saran extends Model
 {
     use HasFactory;
-    protected $table = 'survey';
-    protected $fillable = ['id_data_diri', 'pertanyaan', 'tipe_survey', 'nilai'];
+    protected $table = 'saran';
+    protected $fillable = ['id_data_diri', 'saran'];
 
     public function dataDiri()
     {

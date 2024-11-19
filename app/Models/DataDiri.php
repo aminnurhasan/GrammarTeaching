@@ -27,4 +27,8 @@ class DataDiri extends Model
     {
         return $this->hasOne(Nilai::class, 'id_data_diri');
     }
+    public function saran()
+    {
+        return $this->hasOne(Saran::class, 'id_data_diri');
+    }
 }

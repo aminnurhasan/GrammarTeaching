@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('survey', function (Blueprint $table) {
+        Schema::create('saran', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_data_diri');
-            $table->text('pertanyaan');
-            $table->string('tipe_survey');
-            $table->integer('nilai');
+            $table->text('saran');
             $table->timestamps();
 
             $table->foreign('id_data_diri')->references('id')->on('data_diri')->onDelete('cascade');
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey');
+        Schema::dropIfExists('saran');
     }
 };
