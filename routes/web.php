@@ -23,3 +23,6 @@ Route::get('/home',[HomeController::class, 'index'])->name('home');
 
 Route::get('/biodata', [GameController::class, 'biodata'])->name('biodata');
 Route::post('/biodata/store', [GameController::class, 'biodataStore'])->name('biodata.store');
+
+Route::get('/survey/pretest', [GameController::class, 'preTest'])->name('survey.pretest');
+Route::post('/survey/pretest/store', [GameController::class, 'storePreTest'])->name('survey.pretest.store');

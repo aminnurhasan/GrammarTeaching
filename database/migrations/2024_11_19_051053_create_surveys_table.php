@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_data_diri');
             $table->unsignedBigInteger('id_pertanyaan_survey');
-            $table->integer('nilai');
+            $table->integer('jawaban');
             $table->timestamps();
 
             $table->foreign('id_data_diri')->references('id')->on('data_diri')->onDelete('cascade');

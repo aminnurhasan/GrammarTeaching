@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataDiri;
+use App\Models\PertanyaanSurvey;
 
 class GameController extends Controller
 {
@@ -37,6 +38,38 @@ class GameController extends Controller
 
         // Setelah berhasil disubmit, arahkan pengguna ke halaman survey
         return redirect('/survey')->with('success', 'Biodata berhasil disubmit! Silakan isi survey.');
+    }
+
+    public function preTest()
+    {
+        $pertanyaan = PertanyaanSurvey::where('tipe_survey', 'pra')->get();
+        return view('siswa.game.survey1', compact('pertanyaan'));
+    }
+
+    public function storePreTest(Request $request)
+    {
+        // Validasi data yang diterima
+        $validated = $request->validate([
+            'jawaban' => 'required|array', // Jawaban harus berupa array
+            'jawaban.*' => 'required|integer|min:1|max:5', // Setiap jawaban adalah nilai 1-5
+        ]);
+
+        $idDataDiri = $request->session()->get('id_data_diri'); // Ambil id_data_diri dari session
+        if (!$idDataDiri) {
+            return redirect('/biodata')->withErrors('Data diri belum diisi.');
+        }
+
+        // Loop melalui setiap jawaban yang diterima
+        foreach ($validated['jawaban'] as $idPertanyaanSurvey => $jawaban) {
+            Survey::create([
+                'id_data_diri' => $idDataDiri,
+                'id_pertanyaan_survey' => $idPertanyaanSurvey,
+                'jawaban' => $jawaban,
+            ]);
+        }
+
+        // Redirect setelah berhasil menyimpan
+        return redirect('/game')->with('success', 'Survey berhasil disimpan! Selamat bermain.');
     }
 
     public function index()
