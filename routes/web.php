@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,22 @@ use App\Http\Controllers\GameController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/home',[HomeController::class, 'index'])->name('home');
+Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::get('/biodata', [GameController::class, 'biodata'])->name('biodata');
 Route::post('/biodata/store', [GameController::class, 'biodataStore'])->name('biodata.store');
 
 Route::get('/survey/pretest', [GameController::class, 'preTest'])->name('survey.pretest');
 Route::post('/survey/pretest/store', [GameController::class, 'storePreTest'])->name('survey.pretest.store');
+
+Route::get('/login', [AdminController::class, 'showLoginForm'])->name('login');
+Route::post('/login/store', [AdminController::class, 'login'])->name('login.store');
+Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});

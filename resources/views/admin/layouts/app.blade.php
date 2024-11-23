@@ -41,40 +41,28 @@
                             Materi
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="materiDropdown">
+                            <!-- Sub-dropdown for Grammar Tenses on the Left -->
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">Simple Present</a>
+                                <a class="dropdown-item dropdown-toggle" href="#">Grammar Tenses</a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Simple Present</a></li>
-                                    <li><a class="dropdown-item" href="#">Present Continuous</a></li>
-                                    <li><a class="dropdown-item" href="#">Present Perfect</a></li>
-                                    <li><a class="dropdown-item" href="#">Present Perfect Continuous</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">Simple Past</a>
-                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Simple Past</a></li>
-                                    <li><a class="dropdown-item" href="#">Past Continuous</a></li>
-                                    <li><a class="dropdown-item" href="#">Past Perfect</a></li>
-                                    <li><a class="dropdown-item" href="#">Past Perfect Continuous</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" href="#">Simple Future</a>
-                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Simple Future</a></li>
-                                    <li><a class="dropdown-item" href="#">Future Continuous</a></li>
-                                    <li><a class="dropdown-item" href="#">Future Perfect</a></li>
-                                    <li><a class="dropdown-item" href="#">Future Perfect Continuous</a></li>
                                 </ul>
                             </li>
+                            <!-- Other Materi -->
+                            <li><a class="dropdown-item" href="#">Vocabulary</a></li>
+                            <li><a class="dropdown-item" href="#">Pronunciation</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Game</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}">Login</a>
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </div>
