@@ -15,5 +15,5 @@ return [
     'materi_link' => 'Materi',
     'kuis_link' => 'Kuis',
     'bahasa_dropdown' => 'Bahasa',
-    'login_admin_link' => 'Login Admin',
+    'login' => 'Masuk',
 ];
