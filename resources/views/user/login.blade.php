@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('login.header') }}</div>
+                <div class="card-header bg-secondary text-white">{{ __('login.header') }}</div>
 
                 <div class="card-body">
                     @if ($errors->any())
@@ -25,7 +25,7 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label">{{ __('Email') }}</label>
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus autocomplete="email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus autocomplete="email" style="background-color: #e9ecef; border: 1px solid #ced4da;">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
 
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ __('login.pass') }}</label>
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" style="background-color: #e9ecef; border: 1px solid #ced4da;">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -10,10 +10,10 @@
                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{__('dashboardAdmin.navbar_materi')}}</a>
+                    <a class="nav-link" href="#">{{__('admin.navbar_materi')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{__('dashboardAdmin.navbar_kuis')}}</a>
+                    <a class="nav-link" href="#">{{__('admin.navbar_kuis')}}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguageAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,12 +25,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{__('dashboardAdmin.navbar_gantiPassword')}}</a>
+                    <a class="nav-link" href="{{ route('admin.password.edit') }}">{{__('admin.navbar_gantiPassword')}}</a>
                 </li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="nav-link btn btn-link">{{__('dashboardAdmin.logout')}}</button>
+                        <button type="submit" class="nav-link btn btn-link">{{__('admin.logout')}}</button>
                     </form>
                 </li>
             </ul>

@@ -13,5 +13,14 @@ return [
     'logout' => 'Logout',
     'navbar_materi' => 'Materials',
     'navbar_kuis' => 'Quizzes',
-    'navbar_gantiPassword' => 'Change Password'
+    'navbar_gantiPassword' => 'Change Password',
+
+    'password_change' => 'Change Password',
+    'current_password' => 'Current Password',
+    'new_password' => 'New Password',
+    'confirm_new_password' => 'Confirm New Password',
+    'update_password' => 'Update Password',
+    'password_changed_success' => 'Password has been changed successfully!',
+
+
 ];

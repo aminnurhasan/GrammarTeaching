@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 
-@section('title', __('dashboardAdmin.dashboard_title'))
+@section('title', __('admin.dashboard_title'))
 
 @section('content')
 <div class="container py-5">
-    <h1 class="mb-4">{{ __('dashboardAdmin.dashboard_header') }}</h1>
+    <h1 class="mb-4">{{ __('admin.dashboard_header') }}</h1>
 
     @if (session('success'))
         <div class="alert alert-success" role="alert">
@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <p class="lead">{{ __('dashboardAdmin.welcome_message', ['name' => Auth::user()->nama]) }}</p>
+    <p class="lead">{{ __('admin.welcome_message', ['name' => Auth::user()->nama]) }}</p>
 
     <div class="row mt-4">
         <div class="col-md-4">
@@ -23,11 +23,11 @@
                             <i class="fas fa-users fa-lg"></i>
                         </div>
                         <div>
-                            <h6 class="mb-0">{{ __('dashboardAdmin.total_users') }}</h6>
+                            <h6 class="mb-0">{{ __('admin.total_users') }}</h6>
                             <!-- <span class="font-weight-bold">{{ $totalUsers ?? '...' }}</span> -->
                         </div>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-secondary mt-3">{{ __('dashboardAdmin.view_details') }}</a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary mt-3">{{ __('admin.view_details') }}</a>
                 </div>
             </div>
         </div>
@@ -39,11 +39,11 @@
                             <i class="fas fa-book fa-lg"></i>
                         </div>
                         <div>
-                            <h6 class="mb-0">{{ __('dashboardAdmin.total_materials') }}</h6>
+                            <h6 class="mb-0">{{ __('admin.total_materials') }}</h6>
                             <!-- <span class="font-weight-bold">{{ $totalMaterials ?? '...' }}</span> -->
                         </div>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-secondary mt-3">{{ __('dashboardAdmin.view_details') }}</a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary mt-3">{{ __('admin.view_details') }}</a>
                 </div>
             </div>
         </div>
@@ -55,11 +55,11 @@
                             <i class="fas fa-question-circle fa-lg"></i>
                         </div>
                         <div>
-                            <h6 class="mb-0">{{ __('dashboardAdmin.total_quizzes') }}</h6>
+                            <h6 class="mb-0">{{ __('admin.total_quizzes') }}</h6>
                             <!-- <span class="font-weight-bold">{{ $totalQuizzes ?? '...' }}</span> -->
                         </div>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-secondary mt-3">{{ __('dashboardAdmin.view_details') }}</a>
+                    <a href="#" class="btn btn-sm btn-outline-secondary mt-3">{{ __('admin.view_details') }}</a>
                 </div>
             </div>
         </div>

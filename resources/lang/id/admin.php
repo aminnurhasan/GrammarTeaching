@@ -13,5 +13,12 @@ return [
     'logout' => 'Logout',
     'navbar_materi' => 'Materi',
     'navbar_kuis' => 'Kuis',
-    'navbar_gantiPassword' => 'Ganti Password'
+    'navbar_gantiPassword' => 'Ganti Password',
+
+    'password_change' => 'Ganti Password',
+    'current_password' => 'Password Saat Ini',
+    'new_password' => 'Password Baru',
+    'confirm_new_password' => 'Konfirmasi Password Baru',
+    'update_password' => 'Simpan Password',
+    'password_changed_success' => 'Password berhasil diubah!',
 ];
