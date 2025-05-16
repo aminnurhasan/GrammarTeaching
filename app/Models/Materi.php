@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasFactory;
-use Illuminate\Database\Eloquent\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Materi extends Model
 {
@@ -12,7 +12,7 @@ class Materi extends Model
 
     protected $table = 'materi';
     protected $fillable = ['kategori_id', 'judul', 'slug', 'konten', 'urutan'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function kategori(): BelongsTo{
         return $this->belongsTo(Kategori::class, 'kategori_id');

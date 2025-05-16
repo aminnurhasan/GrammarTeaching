@@ -10,10 +10,13 @@
                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{__('admin.navbar_materi')}}</a>
+                    <a class="nav-link" href="{{ route('admin.materi.index') }}">{{__('admin.navbar_materi')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{__('admin.navbar_kuis')}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{__('admin.navbar_survey')}}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguageAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">

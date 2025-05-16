@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasFactory;
-use Illuminate\Database\Eloquent\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kategori extends Model
 {
@@ -12,7 +12,7 @@ class Kategori extends Model
 
     protected $table = 'kategori';
     protected $fillable = ['nama', 'slug'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function materis(): HasMany{
         return $this->hasMany(Materi::class, 'kategori_id');
