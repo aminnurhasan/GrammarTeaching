@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\KategoriController;
+use App\Http\Controllers\Admin\SurveyController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/locale/{locale}', [LocaleController::class, 'swap'])->name('locale');
@@ -43,4 +44,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/kategori/{kategori}/edit', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
     Route::put('/admin/kategori/{kategori}', [KategoriController::class, 'update'])->name('admin.kategori.update');
     Route::delete('/admin/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('admin.kategori.destroy');
+
+    // Survey
+    Route::get('admin/survey', [SurveyController::class, 'index'])->name('admin.survey.index');
+        // Survey Pretest
+        Route::get('/admin/survey/pretest', [SurveyController::class, 'pretest'])->name('admin.survey.pretest');
+        Route::get('/admin/survey/pretest/create', [SurveyController::class, 'createPretest'])->name('admin.survey.pretest.create');
+        Route::post('/admin/survey/pretest', [SurveyController::class, 'storePretest'])->name('admin.survey.pretest.store');
+        Route::get('/admin/survey/pretest/{survey}', [SurveyController::class, 'showPretest'])->name('admin.survey.pretest.show');
+        Route::get('/admin/survey/pretest/{survey}/edit', [SurveyController::class, 'editPretest'])->name('admin.survey.pretest.edit');
+        Route::put('/admin/survey/pretest/{survey}', [SurveyController::class, 'updatePretest'])->name('admin.survey.pretest.update');
+        Route::delete('/admin/survey/pretest/{survey}', [SurveyController::class, 'destroyPretest'])->name('admin.survey.pretest.destroy');
+        
+        // Survey PostTest
+        Route::get('/admin/survey/posttest', [SurveyController::class, 'posttest'])->name('admin.survey.posttest');
+        Route::get('/admin/survey/posttest/create', [SurveyController::class, 'createPosttest'])->name('admin.survey.posttest.create');
+        Route::post('/admin/survey/posttest', [SurveyController::class, 'storePosttest'])->name('admin.survey.posttest.store');
+        Route::get('/admin/survey/posttest/{survey}', [SurveyController::class, 'showPosttest'])->name('admin.survey.posttest.show');
+        Route::get('/admin/survey/posttest/{survey}/edit', [SurveyController::class, 'editPosttest'])->name('admin.survey.posttest.edit');
+        Route::put('/admin/survey/posttest/{survey}', [SurveyController::class, 'updatePosttest'])->name('admin.survey.posttest.update');
+        Route::delete('/admin/survey/posttest/{survey}', [SurveyController::class, 'destroyPosttest'])->name('admin.survey.posttest.destroy');
 });

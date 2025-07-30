@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // Dashboard Admin
     'dashboard_title' => 'Admin Dashboard',
     'dashboard_header' => 'Admin Dashboard',
     'welcome_message' => 'Welcome, :name!',
@@ -16,6 +17,7 @@ return [
     'navbar_survey' => 'Survey',
     'navbar_gantiPassword' => 'Change Password',
 
+    // Ganti Password Admin
     'password_change' => 'Change Password',
     'current_password' => 'Current Password',
     'new_password' => 'New Password',
@@ -23,6 +25,7 @@ return [
     'update_password' => 'Update Password',
     'password_changed_success' => 'Password has been changed successfully!',
 
+    // Manajemen Materi
     'materi_title' => 'Materials',
     'materi_header' => 'Manage Materials',
     'add_materi' => 'Add Material',
@@ -42,8 +45,6 @@ return [
     'konfirmasi_hapus_materi' => 'Are you sure you want to delete this material?',
     'tidak_ada_materi' => 'No materials found.',
     'belum_ada_materi' => 'There are no materials yet.',
-
-    'add_materi' => 'Add Material',
     'kategori' => 'Category',
     'pilih_kategori' => 'Choose Category',
     'kelola_kategori' => 'Add Category',
@@ -54,11 +55,11 @@ return [
     'batal' => 'Cancel',
     'materi_created' => 'Material created successfully!',
 
+    // Manajemen Kategori
     'kategori' => 'Category',
     'judul' => 'Title',
     'konten' => 'Content',
     'urutan' => 'Order',
-
     'kategori' => 'Categories',
     'add_kategori' => 'Add Category',
     'edit_kategori' => 'Edit Category',
@@ -75,7 +76,6 @@ return [
     'kategori_updated' => 'Category updated successfully.',
     'kategori_deleted' => 'Category deleted successfully.',
     'no_data' => 'No data available.',
-
     'detail_materi' => 'Material Details',
     'judul' => 'Title',
     'kategori' => 'Category',
@@ -88,4 +88,30 @@ return [
     'simpan' => 'Save',
     'batal' => 'Cancel',
     'tambah_materi' => 'Add Material',
+
+    // index survey
+    'survey' => 'Survey',
+    'manajemen_survey' => 'Survey Management',
+    'total_survey' => 'Total Survey',
+    'total_pretest' => 'Total Pre Test',
+    'total_posttest' => 'Total Post Test',
+    'daftar_survey' => 'Survey List',
+    'survey_pretest' => 'Pre Test Survey',
+    'survey_posttest' => 'Post Test Survey',
+    'judul' => 'Title',
+    'pertanyaan' => 'Question',
+    'aksi' => 'Action',
+    'lihat' => 'View',
+    'ubah' => 'Edit',
+    'hapus' => 'Delete',
+    'kembali' => 'Back',
+    'konfirmasi_hapus_survey' => 'Are you sure you want to delete this survey?',
+    'tidak_ada_survey' => 'No surveys available.',
+    'tambah_survey_pretest' => 'Add Pre Test Survey',
+    'tambah_survey_posttest' => 'Add Post Test Survey',
+    'detail_survey_pretest' => 'Pre Test Survey Details',
+    'jenis_survey' => 'Survey Type',
+    'ubah_survey' => 'Edit Survey',
+    'perbarui' => 'Update',
+    'detail_survey_posttest' => 'Post Test Survey Details',
 ];

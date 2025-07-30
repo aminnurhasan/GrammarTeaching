@@ -3,16 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasFactory;
-use Illuminate\Database\Eloquent\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PertanyaanSurvey extends Model
 {
     use HasFactory;
 
     protected $table = 'pertanyaan_survey';
-    protected $fillable = ['teks', 'jenis_survey', 'urutan'];
-    protected $timestamps = true;
+    protected $fillable = ['pertanyaan', 'jenis_survey', 'urutan'];
+    public $timestamps = true;
 
     public function jawabanPertama(): HasMany{
         return $this->hasMany(JawabanSurveyPertama::class, 'pertanyaan_id');

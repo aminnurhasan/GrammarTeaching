@@ -16,7 +16,7 @@
                     <a class="nav-link" href="#">{{__('admin.navbar_kuis')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{__('admin.navbar_survey')}}</a>
+                    <a class="nav-link" href="{{ route('admin.survey.index') }}">{{__('admin.navbar_survey')}}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguageAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
