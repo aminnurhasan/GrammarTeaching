@@ -13,7 +13,7 @@
                     <a class="nav-link" href="{{ route('admin.materi.index') }}">{{__('admin.navbar_materi')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{__('admin.navbar_kuis')}}</a>
+                    <a class="nav-link" href="{{ route('admin.kuis.index') }}">{{__('admin.navbar_kuis')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.survey.index') }}">{{__('admin.navbar_survey')}}</a>

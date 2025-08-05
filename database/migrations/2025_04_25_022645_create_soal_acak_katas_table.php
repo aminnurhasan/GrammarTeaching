@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('soal_acak_kata', function (Blueprint $table) {
             $table->id();
-            $table->text('kata_acak');
             $table->text('kalimat_benar');
             $table->text('penjelasan')->nullable();
             $table->timestamps();

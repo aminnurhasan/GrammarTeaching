@@ -12,7 +12,7 @@ class SoalPilihanGanda extends Model
 
     protected $table = 'soal_pilihan_ganda';
     protected $fillable = ['pertanyaan', 'opsi_a', 'opsi_b', 'opsi_c', 'opsi_d', 'jawaban_benar', 'penjelasan'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function jawabanPilihanGandas(): HasMany{
         return $this->hasMany(JawabanPilihanGanda::class, 'soal_pilihan_ganda_id');

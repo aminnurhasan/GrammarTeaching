@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\SurveyController;
+use App\Http\Controllers\Admin\KuisController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/locale/{locale}', [LocaleController::class, 'swap'])->name('locale');
@@ -64,4 +65,24 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/survey/posttest/{survey}/edit', [SurveyController::class, 'editPosttest'])->name('admin.survey.posttest.edit');
         Route::put('/admin/survey/posttest/{survey}', [SurveyController::class, 'updatePosttest'])->name('admin.survey.posttest.update');
         Route::delete('/admin/survey/posttest/{survey}', [SurveyController::class, 'destroyPosttest'])->name('admin.survey.posttest.destroy');
+
+    // Kuis
+    Route::get('/admin/kuis', [KuisController::class, 'index'])->name('admin.kuis.index');
+        // Pilihan Ganda
+        Route::get('/admin/kuis/pilihanganda', [KuisController::class, 'indexPilihanGanda'])->name('admin.kuis.pilihanGanda');
+        Route::get('/admin/kuis/pilihanganda/create', [KuisController::class, 'createPilihanGanda'])->name('admin.kuis.pilihanGanda.create');
+        Route::post('/admin/kuis/pilihanganda/store', [KuisController::class, 'storePilihanGanda'])->name('admin.kuis.pilihanGanda.store');
+        Route::get('/admin/kuis/pilihanganda/{pilihanGanda}', [KuisController::class, 'showPilihanGanda'])->name('admin.kuis.pilihanGanda.show');
+        Route::get('/admin/kuis/pilihanganda/{pilihanGanda}/edit', [KuisController::class, 'editPilihanGanda'])->name('admin.kuis.pilihanGanda.edit');
+        Route::put('/admin/kuis/pilihanganda/{pilihanGanda}', [KuisController::class, 'updatePilihanGanda'])->name('admin.kuis.pilihanGanda.update');
+        Route::delete('/admin/kuis/pilihanganda/{pilihanGanda}', [KuisController::class, 'destroyPilihanGanda'])->name('admin.kuis.pilihanGanda.destroy');
+        
+        // Susun Kata
+        Route::get('/admin/kuis/susunkata', [KuisController::class, 'indexSusunKata'])->name('admin.kuis.susunKata');
+        Route::get('/admin/kuis/susunkata/create', [KuisController::class, 'createSusunKata'])->name('admin.kuis.susunKata.create');
+        Route::post('/admin/kuis/susunkata/store', [KuisController::class, 'storeSusunKata'])->name('admin.kuis.susunKata.store');
+        Route::get('/admin/kuis/susunkata/{susunKata}', [KuisController::class, 'showSusunKata'])->name('admin.kuis.susunKata.show');
+        Route::get('/admin/kuis/susunkata/{susunKata}/edit', [KuisController::class, 'editSusunKata'])->name('admin.kuis.susunKata.edit');
+        Route::put('/admin/kuis/susunkata/{susunKata}', [KuisController::class, 'updateSusunKata'])->name('admin.kuis.susunKata.update');
+        Route::delete('/admin/kuis/susunkata/{susunKata}', [KuisController::class, 'destroySusunKata'])->name('admin.kuis.susunKata.destroy');
 });

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('opsi_c');
             $table->string('opsi_d');
             $table->enum('jawaban_benar', ['a', 'b', 'c', 'd']);
-            $table->string('penjelasan')->nullable();
+            $table->text('penjelasan')->nullable();
             $table->timestamps();
         });
     }
