@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MateriUserController;
+
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Admin\MateriController;
@@ -13,6 +15,8 @@ use App\Http\Controllers\Admin\KuisController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/locale/{locale}', [LocaleController::class, 'swap'])->name('locale');
+
+Route::get('/materi/{slug}', [MateriUserController::class, 'show'])->name('materi.show');
 
 // Autentikasi
 Route::middleware('guest')->group(function () {
