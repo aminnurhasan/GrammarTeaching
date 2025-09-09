@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasFactory;
-use Illuminate\Database\Eloquent\HasMany;
-use Illuminate\Database\Eloquent\BelongsTo;
-use Illuminate\Database\Eloquent\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class HasilKuis extends Model
 {
@@ -14,7 +14,7 @@ class HasilKuis extends Model
 
     protected $table = 'hasil_kuis';
     protected $fillable = ['data_siswa_id', 'skor_pilihan_ganda', 'skor_acak_kata'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function dataSiswa(): BelongsTo{
         return $this->belongsTo(DataSiswa::class, 'data_siswa_id');

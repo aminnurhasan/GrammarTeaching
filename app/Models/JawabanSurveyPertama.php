@@ -3,16 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasFactory;
-use Illuminate\Database\Eloquent\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class JawabanSurveyPertama extends Model
 {
     use HasFactory;
 
     protected $table = 'jawaban_survey_pertama';
-    protected $fillable = ['hasil_kuis_id', 'pertanyaan_id', 'jawaban'];
-    protected $timestamps = true;
+    protected $fillable = ['hasil_kuis_id', 'pertanyaan_survey_id', 'jawaban'];
+    public $timestamps = true;
 
     public function hasilKuis(): BelongsTo{
         return $this->belongsTo(HasilKuis::class, 'hasil_kuis_id');

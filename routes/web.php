@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MateriUserController;
+use App\Http\Controllers\KuisUserController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PasswordController;
@@ -17,6 +18,28 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/locale/{locale}', [LocaleController::class, 'swap'])->name('locale');
 
 Route::get('/materi/{slug}', [MateriUserController::class, 'show'])->name('materi.show');
+
+Route::prefix('kuis')->name('kuis.')->group(function () {
+    // Rute untuk biodata
+    Route::get('/biodata', [KuisUserController::class, 'biodata'])->name('biodata');
+    Route::post('/biodata', [KuisUserController::class, 'storeBiodata'])->name('biodata.store');
+
+    // Rute untuk pretest
+    Route::get('/pretest', [KuisUserController::class, 'pretest'])->name('pretest');
+    Route::post('/pretest', [KuisUserController::class, 'storePretest'])->name('pretest.store');
+
+    // Rute untuk posttest
+    Route::get('/posttest', [KuisUserController::class, 'posttest'])->name('posttest');
+    Route::post('/posttest', [KuisUserController::class, 'storePosttest'])->name('posttest.store');
+
+    // Route untuk pilihan ganda
+    Route::get('/pilihan-ganda', [KuisUserController::class, 'pilihanGanda'])->name('pilihanGanda');
+    Route::post('/pilihan-ganda', [KuisUserController::class, 'storePilihanGanda'])->name('pilihanGanda.store');
+
+    // Route untuk acak kata
+    Route::get('/acak-kata', [KuisUserController::class, 'acakKata'])->name('acakKata');
+    Route::post('/acak-kata', [KuisUserController::class, 'storeAcakKata'])->name('acakKata.store');
+});
 
 // Autentikasi
 Route::middleware('guest')->group(function () {

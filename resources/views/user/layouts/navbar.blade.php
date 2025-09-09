@@ -37,7 +37,7 @@
                                             </li>
                                         @endforeach
                                     @else
-                                        <li><span class="dropdown-item disabled">{{ __('welcome.no_materi') }}</span></li>
+                                        <li><span class="dropdown-item disabled">{{ __('user.no_materi') }}</span></li>
                                     @endif
                                 </ul>
                             </li>
@@ -46,7 +46,7 @@
                 </li>
                 {{-- End Menu Dropdown Materi --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('welcome.kuis_link') }}</a>
+                    <a class="nav-link" href="{{route('kuis.biodata')}}">{{ __('welcome.kuis_link') }}</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-bs-toggle="dropdown" aria-expanded="false">

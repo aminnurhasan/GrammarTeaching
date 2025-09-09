@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\HasFactory;
-use Illuminate\Database\Eloquent\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class JawabanAcakKata extends Model
 {
@@ -12,7 +12,7 @@ class JawabanAcakKata extends Model
 
     protected $table = 'jawaban_acak_kata';
     protected $fillable = ['hasil_kuis_id', 'soal_acak_kata_id', 'dijawab', 'benar'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function hasilKuis(): BelongsTo{
         return $this->belongsTo(HasilKuis::class, 'hasil_kuis_id');
