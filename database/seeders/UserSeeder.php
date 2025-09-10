@@ -12,12 +12,15 @@ class UserSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
         DB::table('user')->insert([
-            'nama' => 'Admin',
+            'nama' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('12345'),
+            'password' => Hash::make('12345678'),
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('sekolah')->nullable();
+            $table->text('alamat')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['siswa', 'admin'])->default('siswa');
             $table->rememberToken();
             $table->timestamps();
         });

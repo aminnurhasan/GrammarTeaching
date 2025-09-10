@@ -23,6 +23,10 @@ class User extends Authenticatable
         'nama',
         'email',
         'password',
+        'tanggal_lahir',
+        'sekolah',
+        'alamat',
+        'role',
     ];
 
     /**
@@ -46,5 +50,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function hasilKuis(): HasMany
+    {
+        return $this->hasMany(HasilKuis::class, 'user_id');
     }
 }

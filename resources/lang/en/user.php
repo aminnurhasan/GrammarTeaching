@@ -3,6 +3,20 @@
 return [
     'no_materi' => 'No Material',
     'judul_materi' => 'Grammar Material',
+    'logout' => 'Logout',
+
+    "title" => "User Dashboard",
+    "hero_title" => "Welcome, :name!",
+    "hero_subtitle" => "Explore learning materials, take quizzes, and improve your skills.",
+    "quizzes_completed" => "Quizzes Completed",
+    "start_quiz_button" => "Start Quiz",
+    "quick_access" => "Quick Access",
+    "learning_materials_title" => "Learning Materials",
+    "learning_materials_desc" => "View all available learning materials.",
+    "quiz_history_title" => "Quiz History",
+    "quiz_history_desc" => "Browse your quiz history and review your results.",
+    "my_account_title" => "My Account",
+    "my_account_desc" => "Manage your profile and account settings.",
 
     'biodata_title' => 'Fill in Your Personal Data',
     'judul_biodata' => 'Fill in Your Personal Data',

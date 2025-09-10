@@ -3,6 +3,20 @@
 return [
     'no_materi' => 'Tidak Ada Materi',
     'judul_materi' => 'Materi Grammar',
+    'logout' => 'Keluar',
+
+    "title" => "Dasbor Pengguna",
+    "hero_title" => "Selamat datang, :name!",
+    "hero_subtitle" => "Jelajahi materi, ambil kuis, dan tingkatkan keterampilan Anda.",
+    "quizzes_completed" => "Kuis Selesai",
+    "start_quiz_button" => "Mulai Kuis",
+    "quick_access" => "Akses Cepat",
+    "learning_materials_title" => "Materi Pembelajaran",
+    "learning_materials_desc" => "Lihat semua materi pembelajaran yang tersedia.",
+    "quiz_history_title" => "Riwayat Kuis",
+    "quiz_history_desc" => "Telusuri riwayat kuis dan lihat hasil Anda.",
+    "my_account_title" => "Akun Saya",
+    "my_account_desc" => "Kelola profil dan pengaturan akun Anda.",
 
     'biodata_title' => 'Isi Data Diri',
     'judul_biodata' => 'Isi Data Diri',

@@ -13,11 +13,11 @@ class HasilKuis extends Model
     use HasFactory;
 
     protected $table = 'hasil_kuis';
-    protected $fillable = ['data_siswa_id', 'skor_pilihan_ganda', 'skor_acak_kata'];
+    protected $fillable = ['user_id', 'skor_pilihan_ganda', 'skor_acak_kata'];
     public $timestamps = true;
 
-    public function dataSiswa(): BelongsTo{
-        return $this->belongsTo(DataSiswa::class, 'data_siswa_id');
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function jawabanPilihanGandas(): HasMany{

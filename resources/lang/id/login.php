@@ -5,5 +5,6 @@ return [
     'header' => 'Masuk',
     'pass' => 'Kata Sandi',
     'rememberToken' => 'Ingat Saya',
-    'login' => 'Masuk'
+    'login' => 'Masuk',
+    'register_here' => 'Daftar',
 ];

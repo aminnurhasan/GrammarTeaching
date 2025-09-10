@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('hasil_kuis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('data_siswa_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('skor_pilihan_ganda')->nullable();
             $table->unsignedInteger('skor_acak_kata')->nullable();
             $table->timestamps();
 
-            $table->foreign('data_siswa_id')->references('id')->on('data_siswa')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
         });
     }
 

@@ -12,34 +12,119 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function showLoginForm(){
-        return view('user.login');
+    /**
+     * Menampilkan halaman formulir login.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        return view('login');
     }
 
-    public function login (Request $request){
+    /**
+     * Menangani proses login pengguna.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'remember' => 'nullable|boolear'
         ]);
 
-        if (Auth::attempt($credentials)){
-            return redirect()->intended('/admin/dashboard');
+        // Cek apakah user ingin "remember me"
+        $remember = $request->boolean('remember');
+
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
+            
+            // Logika pengalihan berdasarkan peran (role)
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                return redirect()->intended('/admin/dashboard');
+            } else {
+                return redirect()->intended('/user/dashboard');
+            }
         }
 
-        return back()->withErrors([
-            'email' => 'Kredensial yang anda masukkan salah.'
-        ])->onlyInput('email');
+        return redirect()->back()->withInput($request->only('email'))->with('error', 'Kredensial yang Anda masukkan tidak cocok dengan data kami.');
     }
 
-    public function logout(Request $request){
+    /**
+     * Menampilkan halaman formulir registrasi.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('register');
+    }
+
+    /**
+     * Menangani proses registrasi pengguna baru.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function register(Request $request)
+    {
+        // Validasi data yang masuk dari formulir registrasi
+        $request->validate([
+            'nama' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:user'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'tanggal_lahir' => ['required', 'date'],
+            'sekolah' => ['required', 'string', 'max:255'],
+            'alamat' => ['required', 'string'],
+        ]);
+
+        // Buat pengguna baru dengan data dari formulir
+        $user = User::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'sekolah' => $request->sekolah,
+            'alamat' => $request->alamat,
+            'role' => 'siswa', // Set peran default untuk pengguna baru
+        ]);
+
+        // Langsung login pengguna setelah registrasi berhasil
+        Auth::login($user);
+
+        // Redirect ke halaman dashboard pengguna
+        return redirect()->route('dashboard'); 
+    }
+
+    /**
+     * Menangani proses logout pengguna.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
     }
 
-    public function dashboard(){
-        return view('admin.dashboard');
+    /**
+     * Menampilkan halaman dashboard setelah login.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function dashboard()
+    {
+        // Logika untuk menampilkan dashboard berdasarkan peran
+        if (Auth::user()->role == 'admin') {
+            return view('admin.dashboard');
+        } else {
+            return view('user.dashboard');
+        }
     }
 }

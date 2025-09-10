@@ -1,15 +1,6 @@
-{{--
-|--------------------------------------------------------------------------
-| resources/views/user/layouts/navbar.blade.php
-|--------------------------------------------------------------------------
-|
-| Ini adalah file partial untuk navbar.
-| Kode ini telah diperbarui untuk memperbaiki bug submenu dropdown.
-|
---}}
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/">Happy Grammar</a>
+        <a class="navbar-brand fw-bold" href="{{route('user.dashboard')}}">Happy Grammar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,23 +48,22 @@
                         <li><a class="dropdown-item" href="{{ route('locale', 'en') }}">English</a></li>
                     </ul>
                 </li>
+                {{-- Tautan Logout --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('welcome.login') }}</a>
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ __('user.logout') }}
+                    </a>
                 </li>
+
+                {{-- Formulir Logout (disembunyikan) --}}
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </ul>
         </div>
     </div>
 </nav>
 
-{{--
-|--------------------------------------------------------------------------
-| Custom JavaScript untuk Submenu Dropdown Bootstrap 5
-|--------------------------------------------------------------------------
-|
-| Skrip ini menambahkan fungsionalitas submenu dropdown yang tidak ada secara native di Bootstrap 5.
-| Skrip ini berfungsi untuk desktop (hover) dan mobile (click).
-|
---}}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Mendapatkan semua dropdown submenu
@@ -130,14 +120,6 @@
     });
 </script>
 
-{{--
-|--------------------------------------------------------------------------
-| Custom CSS untuk Submenu Dropdown
-|--------------------------------------------------------------------------
-|
-| CSS ini menyesuaikan posisi submenu agar tampil di samping item parent.
-|
---}}
 <style>
     .dropdown-submenu {
         position: relative;
