@@ -12,22 +12,11 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    /**
-     * Menampilkan halaman formulir login.
-     *
-     * @return \Illuminate\View\View
-     */
     public function showLoginForm()
     {
         return view('login');
     }
 
-    /**
-     * Menangani proses login pengguna.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -53,22 +42,11 @@ class AuthController extends Controller
         return redirect()->back()->withInput($request->only('email'))->with('error', 'Kredensial yang Anda masukkan tidak cocok dengan data kami.');
     }
 
-    /**
-     * Menampilkan halaman formulir registrasi.
-     *
-     * @return \Illuminate\View\View
-     */
     public function showRegistrationForm()
     {
         return view('register');
     }
 
-    /**
-     * Menangani proses registrasi pengguna baru.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function register(Request $request)
     {
         // Validasi data yang masuk dari formulir registrasi
@@ -96,15 +74,37 @@ class AuthController extends Controller
         Auth::login($user);
 
         // Redirect ke halaman dashboard pengguna
-        return redirect()->route('dashboard'); 
+        return redirect()->route('user.dashboard'); 
     }
 
-    /**
-     * Menangani proses logout pengguna.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    public function showRegistrationAdminForm()
+    {
+        return view('registerAdmin');
+    }
+
+    public function registerAdmin(Request $request)
+    {
+        // Validasi data yang masuk dari formulir registrasi
+        $request->validate([
+            'nama' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:user'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        // Buat pengguna baru dengan data dari formulir
+        $user = User::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'admin', // Set peran default untuk pengguna baru
+        ]);
+
+        // Langsung login pengguna setelah registrasi berhasil
+        Auth::login($user);
+
+        return redirect()->route('admin.dashboard'); 
+    }
+
     public function logout(Request $request)
     {
         Auth::logout();
@@ -113,14 +113,8 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    /**
-     * Menampilkan halaman dashboard setelah login.
-     *
-     * @return \Illuminate\View\View
-     */
     public function dashboard()
     {
-        // Logika untuk menampilkan dashboard berdasarkan peran
         if (Auth::user()->role == 'admin') {
             return view('admin.dashboard');
         } else {

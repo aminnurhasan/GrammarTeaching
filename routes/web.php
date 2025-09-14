@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\KuisController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/registerAdmin', [AuthController::class, 'showRegistrationAdminForm'])->name('registerAdmin.form');
+Route::post('/registerAdmin', [AuthController::class, 'registerAdmin'])->name('registerAdmin');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -30,10 +32,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('kuis')->name('kuis.')->group(function () {
-    // Rute untuk biodata
-    Route::get('/biodata', [KuisUserController::class, 'biodata'])->name('biodata');
-    Route::post('/biodata', [KuisUserController::class, 'storeBiodata'])->name('biodata.store');
-
     // Rute untuk pretest
     Route::get('/pretest', [KuisUserController::class, 'pretest'])->name('pretest');
     Route::post('/pretest', [KuisUserController::class, 'storePretest'])->name('pretest.store');
@@ -49,6 +47,9 @@ Route::prefix('kuis')->name('kuis.')->group(function () {
     // Route untuk acak kata
     Route::get('/acak-kata', [KuisUserController::class, 'acakKata'])->name('acakKata');
     Route::post('/acak-kata', [KuisUserController::class, 'storeAcakKata'])->name('acakKata.store');
+
+    // Route untuk hasil kuis
+    Route::get('/hasil/{id}', [KuisUserController::class, 'showResults'])->name('hasil');
 });
 
 // Admin routes

@@ -13,32 +13,48 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMateri">
                         @foreach ($kategoris as $kategori)
-                            {{-- Dropdown submenu untuk setiap kategori --}}
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="#">
-                                    {{ $kategori->nama }}
-                                </a>
-                                <ul class="dropdown-menu">
-                                    @if ($kategori->materis->count() > 0)
-                                        @foreach ($kategori->materis as $materi)
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('materi.show', $materi->slug) }}">
-                                                    {{ $materi->judul }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    @else
-                                        <li><span class="dropdown-item disabled">{{ __('user.no_materi') }}</span></li>
-                                    @endif
-                                </ul>
-                            </li>
+                        {{-- Dropdown submenu untuk setiap kategori --}}
+                        <li class="dropdown-submenu dropend">
+                            <a class="dropdown-item dropdown-toggle" href="#">
+                                {{ $kategori->nama }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if ($kategori->materis->count() > 0)
+                                @foreach ($kategori->materis as $materi)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('materi.show', $materi->slug) }}">
+                                        {{ $materi->judul }}
+                                    </a>
+                                </li>
+                                @endforeach
+                                @else
+                                <li><span class="dropdown-item disabled">{{ __('user.no_materi') }}</span></li>
+                                @endif
+                            </ul>
+                        </li>
                         @endforeach
                     </ul>
                 </li>
                 {{-- End Menu Dropdown Materi --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('kuis.biodata')}}">{{ __('welcome.kuis_link') }}</a>
+                    <a class="nav-link" href="{{route('kuis.pretest')}}">{{ __('welcome.kuis_link') }}</a>
                 </li>
+
+                {{-- Menu Hasil Kuis --}}
+                @if (Auth::check() && $hasCompletedQuiz)
+                    @php
+                        // Mengambil hasil kuis terbaru untuk pengguna yang sedang login
+                        $latestResult = \App\Models\HasilKuis::where('user_id', Auth::id())->latest()->first();
+                    @endphp
+                    {{-- Pastikan ada hasil kuis sebelum menampilkan tautan --}}
+                    @if ($latestResult)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('kuis.hasil', ['id' => $latestResult->id]) }}">Hasil Kuis</a>
+                        </li>
+                    @endif
+                @endif
+                {{-- End Menu Hasil Kuis --}}
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ __('welcome.bahasa_dropdown') }}
@@ -66,43 +82,34 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Mendapatkan semua dropdown submenu
         const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
-
-        // Menambahkan event listener untuk setiap submenu
         dropdownSubmenus.forEach(function(submenu) {
             let submenuToggle = submenu.querySelector('.dropdown-toggle');
             let submenuMenu = submenu.querySelector('.dropdown-menu');
             let parentDropdown = submenu.closest('.dropdown');
 
-            // Fungsi untuk menampilkan submenu
             const showSubmenu = () => {
                 submenuMenu.classList.add('show');
                 submenu.classList.add('show');
             };
 
-            // Fungsi untuk menyembunyikan submenu
             const hideSubmenu = () => {
                 submenuMenu.classList.remove('show');
                 submenu.classList.remove('show');
             };
 
-            // Event untuk desktop (hover)
             if (window.innerWidth >= 992) {
                 submenu.addEventListener('mouseenter', showSubmenu);
                 submenu.addEventListener('mouseleave', hideSubmenu);
             }
 
-            // Event untuk mobile (click)
             submenuToggle.addEventListener('click', function(e) {
                 e.preventDefault();
-                e.stopPropagation(); // Mencegah event click menyebar ke parent
+                e.stopPropagation(); 
                 
-                // Toggle kelas 'show'
                 if (submenuMenu.classList.contains('show')) {
                     hideSubmenu();
                 } else {
-                    // Sembunyikan semua submenu lain sebelum menampilkan yang ini
                     parentDropdown.querySelectorAll('.dropdown-submenu .dropdown-menu.show').forEach(el => {
                         el.classList.remove('show');
                     });
@@ -110,7 +117,6 @@
                 }
             });
             
-            // Menutup submenu saat mengklik di luar
             document.addEventListener('click', function(e) {
                 if (!submenu.contains(e.target) && !parentDropdown.contains(e.target)) {
                     hideSubmenu();
@@ -133,17 +139,15 @@
         border: 1px solid rgba(0,0,0,.15);
     }
     
-    /* Perilaku di layar lebar */
     @media (min-width: 992px) {
         .dropdown-submenu .dropdown-menu {
-            display: none; /* Sembunyikan secara default untuk desktop */
+            display: none; 
         }
         .dropdown-submenu:hover > .dropdown-menu {
-            display: block; /* Tampilkan saat di-hover */
+            display: block; 
         }
     }
     
-    /* Perilaku di layar kecil */
     @media (max-width: 991.98px) {
         .dropdown-submenu .dropdown-menu {
             margin-left: 1rem;
