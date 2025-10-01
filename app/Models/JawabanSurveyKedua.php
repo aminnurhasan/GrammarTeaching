@@ -19,6 +19,6 @@ class JawabanSurveyKedua extends Model
     }
 
     public function pertanyaanSurvey(): BelongsTo{
-        return $this->belongsTo(PertanyaanSurvey::class, 'pertanyaan_id');
+        return $this->belongsTo(PertanyaanSurvey::class, 'pertanyaan_survey_id');
     }
 }

@@ -28,11 +28,11 @@ class HasilKuis extends Model
         return $this->hasMany(JawabanAcakKata::class, 'hasil_kuis_id');
     }
 
-    public function jawabanSurveyPertama(): HasOne{
-        return $this->hasOne(JawabanSurveyPertama::class, 'hasil_kuis_id');
+    public function jawabanSurveyPertama(): HasMany{
+        return $this->hasMany(JawabanSurveyPertama::class, 'hasil_kuis_id');
     }
 
-    public function jawabanSurveyKedua(): HasOne{
-        return $this->hasOne(JawabanSurveyKedua::class, 'hasil_kuis_id');
+    public function jawabanSurveyKedua(): HasMany{
+        return $this->hasMany(JawabanSurveyKedua::class, 'hasil_kuis_id');
     }
 }

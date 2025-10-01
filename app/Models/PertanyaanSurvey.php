@@ -15,10 +15,10 @@ class PertanyaanSurvey extends Model
     public $timestamps = true;
 
     public function jawabanPertama(): HasMany{
-        return $this->hasMany(JawabanSurveyPertama::class, 'pertanyaan_id');
+        return $this->hasMany(JawabanSurveyPertama::class, 'pertanyaan_survey_id');
     }
 
     public function jawabanKedua(): HasMany{
-        return $this->hasMany(JawabanSurveyKedua::class, 'pertanyaan_id');
+        return $this->hasMany(JawabanSurveyKedua::class, 'pertanyaan_survey_id');
     }
 }

@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\SurveyController;
 use App\Http\Controllers\Admin\KuisController;
+use App\Http\Controllers\Admin\HasilKuisController;
+use App\Http\Controllers\Admin\HasilSurveyController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.form');
@@ -60,6 +62,14 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/password/edit', [PasswordController::class, 'edit'])->name('password.edit');
     Route::put('/password/update', [PasswordController::class, 'update'])->name('password.update');
+
+    // Hasil Kuis
+    Route::get('/hasil-kuis', [HasilKuisController::class, 'index'])->name('hasilKuis.index');
+    Route::get('/hasil-kuis/{hasilKuis}', [HasilKuisController::class, 'show'])->name('hasilKuis.show');
+
+    // Hasil Survey
+    Route::get('/hasil-survey', [HasilSurveyController::class, 'index'])->name('hasilSurvey.index');
+    Route::get('/hasil-survey/{userId}/{type}', [HasilSurveyController::class, 'showSurveyResult'])->name('hasilSurvey.show_survey_result');
 
     // Materi
     Route::get('/materi', [MateriController::class, 'index'])->name('materi.index');
