@@ -8,8 +8,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\User\DashboardUserController;
 use App\Http\Controllers\User\MateriUserController;
 use App\Http\Controllers\User\KuisUserController;
+use App\Http\Controllers\User\PasswordUserController;
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\Admin\KategoriController;
@@ -31,6 +33,8 @@ Route::get('/locale/{locale}', [LocaleController::class, 'swap'])->name('locale'
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/dashboard', [DashboardUserController::class, 'index'])->name('user.dashboard');
     Route::get('/materi/{slug}', [MateriUserController::class, 'show'])->name('materi.show');
+    Route::get('/password/edit', [PasswordUserController::class, 'edit'])->name('user.password.edit');
+    Route::put('/password/update', [PasswordUserController::class, 'update'])->name('user.password.update');
 });
 
 Route::prefix('kuis')->name('kuis.')->group(function () {
@@ -62,6 +66,13 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/password/edit', [PasswordController::class, 'edit'])->name('password.edit');
     Route::put('/password/update', [PasswordController::class, 'update'])->name('password.update');
+
+    // Kelola User
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/{student}', [UserController::class, 'show'])->name('user.show');
+    Route::get('/user/{student}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{student}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{student}', [UserController::class, 'destroy'])->name('user.destroy');
 
     // Hasil Kuis
     Route::get('/hasil-kuis', [HasilKuisController::class, 'index'])->name('hasilKuis.index');

@@ -10,7 +10,7 @@
                 <h1 class="display-4 fw-bold">{{ __('user.hero_title', ['name' => Auth::user()->nama]) }}</h1>
                 <p class="lead">{{ __('user.hero_subtitle') }}</p>
 
-                <a class="btn btn-primary btn-lg mt-3" href="#" role="button">{{ __('user.start_quiz_button') }}</a>
+                <a class="btn btn-primary btn-lg mt-3" href="{{route('kuis.pretest')}}" role="button">{{ __('user.start_quiz_button') }}</a>
             </div>
         </div>
     </div>

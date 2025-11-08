@@ -81,6 +81,39 @@
             font-size: 1.75rem;
             margin-bottom: 10px;
         }
+
+        .mt-4 table {
+            /* Set lebar tabel agar responsif */
+            width: 100%; 
+            /* Atur border ke mode 'collapse' agar border sel menyatu */
+            border-collapse: collapse; 
+            /* Spasi di dalam sel */
+            margin: 20px 0; 
+            /* Pastikan border tabel utama ada */
+            border: 2px solid #000000ff;
+        }
+
+        .mt-4 th, 
+        .mt-4 td {
+            /* Padding di dalam header dan sel */
+            padding: 12px; 
+            /* Border untuk setiap sel (garis internal) */
+            border: 2px solid #000000ff; 
+            /* Teks rata kiri */
+            text-align: left; 
+        }
+
+        .mt-4 th {
+            /* Styling khusus untuk header tabel */
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Optional: Garis zebra untuk keterbacaan yang lebih baik */
+        .mt-4 tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
     </style>
 </head>
 <body>

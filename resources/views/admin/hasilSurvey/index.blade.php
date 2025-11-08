@@ -64,7 +64,7 @@
                                             <a href="{{ $isSurvey1Done ? route('admin.hasilSurvey.show_survey_result', ['userId' => $userId, 'type' => 'pre']) : '#' }}" 
                                                 class="btn btn-sm btn-info @unless($isSurvey1Done) disabled @endunless" 
                                                 title="{{ __('admin.detail_pretest') }}">
-                                                <i class="fas fa-eye me-1"></i> {{ __('admin.lihat_detail') }}
+                                                <i class="fas fa-eye me-1"></i>
                                             </a>
                                         </div>
                                     </td>

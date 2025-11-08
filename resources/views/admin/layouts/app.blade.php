@@ -198,6 +198,38 @@
             margin: 0;
         }
 
+        .mt-4 table {
+            /* Set lebar tabel agar responsif */
+            width: 100%; 
+            /* Atur border ke mode 'collapse' agar border sel menyatu */
+            border-collapse: collapse; 
+            /* Spasi di dalam sel */
+            margin: 20px 0; 
+            /* Pastikan border tabel utama ada */
+            border: 2px solid #000000ff;
+        }
+
+        .mt-4 th, 
+        .mt-4 td {
+            /* Padding di dalam header dan sel */
+            padding: 12px; 
+            /* Border untuk setiap sel (garis internal) */
+            border: 2px solid #000000ff; 
+            /* Teks rata kiri */
+            text-align: left; 
+        }
+
+        .mt-4 th {
+            /* Styling khusus untuk header tabel */
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Optional: Garis zebra untuk keterbacaan yang lebih baik */
+        .mt-4 tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
     </style>
 </head>
 <body>
@@ -228,7 +260,6 @@
                 font_formats: 'Andale Mono=andale mono,monospace;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino linotype,book antiqua,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times,serif;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
                 fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
                 statusbar: false,
-                menubar: false,
             });
         });
     </script>
@@ -243,7 +274,6 @@
                 font_formats: 'Andale Mono=andale mono,monospace;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino linotype,book antiqua,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times,serif;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
                 fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
                 statusbar: false,
-                menubar: false,
                 height: 200,
             });
         });
@@ -258,7 +288,6 @@
                 font_formats: 'Andale Mono=andale mono,monospace;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino linotype,book antiqua,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times,serif;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
                 fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
                 statusbar: false,
-                menubar: false,
                 height: 200,
             });
         });

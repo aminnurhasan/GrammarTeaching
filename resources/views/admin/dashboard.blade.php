@@ -32,7 +32,7 @@
                     </div>
                     <h2 class="display-3 fw-bolder text-dark">{{ $totalSiswa ?? '...' }}</h2>
                     {{-- Penggunaan terjemahan untuk tombol detail --}}
-                    <a href="#" class="stretched-link text-primary text-decoration-none small mt-2 d-block fw-medium">{{ __('admin.view_details') }} <i class="fas fa-arrow-right fa-xs ms-1"></i></a>
+                    <a href="{{ route('admin.user.index') }}" class="stretched-link text-primary text-decoration-none small mt-2 d-block fw-medium">{{ __('admin.view_details') }} <i class="fas fa-arrow-right fa-xs ms-1"></i></a>
                 </div>
             </div>
         </div>

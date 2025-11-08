@@ -64,6 +64,9 @@
                         <li><a class="dropdown-item" href="{{ route('locale', 'en') }}">English</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.password.edit') }}">{{__('user.navbar_gantiPassword')}}</a>
+                </li>
                 {{-- Tautan Logout --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
