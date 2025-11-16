@@ -272,8 +272,8 @@ return [
     'survey_posttest' => 'User Experience Survey',
 
     // Management
-    'tambah_survey_pretest' => 'Add Comprehension Diagnostic Survey',
-    'tambah_survey_posttest' => 'Add User Experience Survey',
+    'tambah_survey_pretest' => 'Add Survey',
+    'tambah_survey_posttest' => 'Add Survey',
     'detail_survey_pretest' => 'Comprehension Diagnostic Survey Details',
     'detail_survey_posttest' => 'User Experience Survey Details',
     'jenis_survey' => 'Survey Type',

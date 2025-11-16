@@ -278,7 +278,7 @@
             });
         });
     </script>
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             tinymce.init({
                 selector: '#pertanyaan',
@@ -291,7 +291,7 @@
                 height: 200,
             });
         });
-    </script>
+    </script> -->
 
     <script>
         $(document).ready(function() {

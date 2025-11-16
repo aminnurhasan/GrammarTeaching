@@ -271,8 +271,8 @@ return [
     'survey_posttest' => 'Survey Survey Pengalaman Pengguna',
 
     // Manajemen Survey
-    'tambah_survey_pretest' => 'Tambah Survey Diagnosa Kemampuan',
-    'tambah_survey_posttest' => 'Tambah Survey Pengalaman Pengguna',
+    'tambah_survey_pretest' => 'Tambah Survey',
+    'tambah_survey_posttest' => 'Tambah Survey',
     'detail_survey_pretest' => 'Detail Survey Diagnosa Kemampuan',
     'detail_survey_posttest' => 'Detail Survey Pengalaman Pengguna',
     'jenis_survey' => 'Jenis Survey',

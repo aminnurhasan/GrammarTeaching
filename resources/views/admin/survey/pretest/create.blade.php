@@ -11,7 +11,7 @@
                 @csrf
                 <div class="form-group mb-3">
                     <label for="pertanyaan">{{ __('admin.pertanyaan') }} <span class="text-danger">*</span></label>
-                    <textarea name="pertanyaan" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" rows="3" required>{{ old('pertanyaan') }}</textarea>
+                    <textarea name="pertanyaan" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" rows="3">{{ old('pertanyaan') }}</textarea>
                     @error('pertanyaan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

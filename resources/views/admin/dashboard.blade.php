@@ -74,7 +74,7 @@
                         <h5 class="card-title fw-semibold mb-0 text-gray-600 small">{{ __('admin.total_surveys') }}</h5>
                     </div>
                     <h2 class="display-3 fw-bolder text-dark">{{ $totalSurveyAttempts ?? '...' }}</h2>
-                    <a href="#" class="stretched-link text-info text-decoration-none small mt-2 d-block fw-medium">{{ __('admin.view_details') }} <i class="fas fa-arrow-right fa-xs ms-1"></i></a>
+                    <a href="{{ route('admin.survey.index') }}" class="stretched-link text-info text-decoration-none small mt-2 d-block fw-medium">{{ __('admin.view_details') }} <i class="fas fa-arrow-right fa-xs ms-1"></i></a>
                 </div>
             </div>
         </div>
